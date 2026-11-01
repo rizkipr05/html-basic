@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ | Sweet Crumbs Bakery</title>
+
+  <!-- External CSS: shared by all five pages -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Internal CSS: this page only (assignment requirement) -->
+  <style>
+    /* ---------- Base text and font properties ---------- */
+    body {
+      margin: 0;
+      background-color: #FFF8EF;
+      color: #3D2B1F;
+      font-family: "Segoe UI", Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      color: #3D2B1F;
+    }
+
+    a:focus-visible {
+      outline: 3px solid #8B5E3C;
+      outline-offset: 3px;
+    }
+
+    /* ---------- Header and navigation (keep identical on every page) ---------- */
+    header {
+      background-color: #D8B894;
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .brand {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 24px;
+      font-weight: bold;
+      color: #3D2B1F;
+      text-decoration: none;
+    }
+
+    .nav-links a {
+      font-size: 16px;
+      color: #3D2B1F;
+      text-decoration: none;
+      margin-left: 22px;
+      padding-bottom: 3px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      border-bottom: 2px solid #3D2B1F;
+      font-weight: bold;
+    }
+
+    /* ---------- Page title ---------- */
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+    }
+
+    .page-title {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .page-title h1 {
+      font-size: 42px;
+      margin: 0 0 10px;
+    }
+
+    .page-title p {
+      font-size: 18px;
+      color: #8B5E3C;
+      max-width: 560px;
+      margin: 0 auto 20px;
+    }
+
+    .jump-links a {
+      display: inline-block;
+      background-color: #8B5E3C;
+      color: #FFF8EF;
+      font-size: 15px;
+      text-decoration: none;
+      padding: 9px 18px;
+      margin: 4px;
+      border-radius: 6px;
+    }
+
+    .jump-links a:hover {
+      background-color: #3D2B1F;
+    }
+
+    /* ---------- FAQ sections ---------- */
+    .faq-section {
+      display: flex;
+      align-items: flex-start;
+      gap: 32px;
+      padding: 36px 0;
+      border-top: 2px solid #D8B894;
+    }
+
+    .faq-section.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .faq-section img {
+      width: 300px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+      flex-shrink: 0;
+    }
+
+    .faq-body {
+      flex: 1;
+    }
+
+    .faq-body h2 {
+      font-size: 30px;
+      margin: 0 0 14px;
+    }
+
+    .faq-body h3 {
+      font-size: 20px;
+      color: #8B5E3C;
+      margin: 22px 0 6px;
+    }
+
+    .faq-body p {
+      margin: 0;
+    }
+
+    .faq-body ol,
+    .faq-body ul {
+      margin: 8px 0 0;
+      padding-left: 24px;
+    }
+
+    .faq-body li {
+      margin-bottom: 6px;
+    }
+
+    /* ---------- Footer (keep identical on every page) ---------- */
+    footer {
+      background-color: #3D2B1F;
+      color: #FFF8EF;
+      text-align: center;
+      font-size: 15px;
+      padding: 28px 24px;
+    }
+
+    footer p {
+      margin: 6px 0;
+    }
+
+    footer a {
+      color: #D8B894;
+      margin: 0 8px;
+    }
+
+    /* ---------- Mobile ---------- */
+    @media (max-width: 700px) {
+      .faq-section,
+      .faq-section.reverse {
+        flex-direction: column;
+      }
+
+      .faq-section img {
+        width: 100%;
+        height: 200px;
+      }
+
+      .page-title h1 {
+        font-size: 32px;
+      }
+
+      .nav-links a {
+        margin: 0 14px 0 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <a class="brand" href="index.html">Sweet Crumbs Bakery</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="basket.html">Basket</a>
+        <a href="purchase.html">Purchase</a>
+        <a href="faq.html" class="active">FAQ</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="page-title">
+      <h1>Frequently Asked Questions</h1>
+      <p>Everything you need to know about our opening hours, ordering, and how to keep your bakes fresh.</p>
+      <div class="jump-links">
+        <a href="#general">General questions</a>
+        <a href="#ordering">Ordering and delivery</a>
+        <a href="#care">Product care and policies</a>
+      </div>
+    </section>
+
+    <!-- 1. General questions -->
+    <section class="faq-section" id="general">
+      <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=800&q=80" alt="Front of the Sweet Crumbs Bakery shop">
+      <div class="faq-body">
+        <h2>General questions</h2>
+
+        <h3>What are your opening hours?</h3>
+        <p>We are open Monday to Saturday from 07:00 to 18:00, and on Sunday from 08:00 to 15:00.</p>
+
+        <h3>Where is the bakery located?</h3>
+        <p>You can find us at Jl. Roti Manis No. 8. Look for the striped awning and the smell of fresh bread.</p>
+
+        <h3>Do you bake fresh products daily?</h3>
+        <p>Yes. Our bread and pastries are baked every morning, and our cakes are made fresh for each order.</p>
+      </div>
+    </section>
+
+    <!-- 2. Ordering and delivery -->
+    <section class="faq-section reverse" id="ordering">
+      <img src="https://images.unsplash.com/photo-1579697096985-41fe1430e5df?auto=format&fit=crop&w=800&q=80" alt="Pastries being packed for an order">
+      <div class="faq-body">
+        <h2>Ordering and delivery</h2>
+
+        <h3>How long do orders take?</h3>
+        <p>Ready-made items are usually ready within 2 hours. Custom cakes need at least 3 days.</p>
+
+        <h3>Do you offer delivery?</h3>
+        <p>Yes. Choose "Delivery" on the Purchase page and enter your address. The delivery fee depends on the distance and is shown before you place your order.</p>
+
+        <h3>Can I cancel or change an order?</h3>
+        <p>You can change or cancel a regular order up to 2 hours before pickup or delivery. Custom cake orders can be changed up to 48 hours before the date.</p>
+      </div>
+    </section>
+
+    <!-- 3. Product care and policies -->
+    <section class="faq-section" id="care">
+      <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80" alt="Loaves of bread stored in a wooden bread box">
+      <div class="faq-body">
+        <h2>Product care and policies</h2>
+
+        <h3>How should I store bread and cakes?</h3>
+        <p>For bread, follow these steps:</p>
+        <!-- Ordered list: bread-storage instructions -->
+        <ol>
+          <li>Let the bread cool completely before storing it.</li>
+          <li>Keep it in a bread box or a paper bag at room temperature.</li>
+          <li>Slice and freeze it if you need to keep it longer than 3 days.</li>
+        </ol>
+        <p style="margin-top: 10px;">Cakes should be kept in the fridge and taken out 30 minutes before serving.</p>
+
+        <h3>Do you accept custom cake orders?</h3>
+        <p>Yes. Tell us the flavor, size, and design on the Purchase page, and we will confirm the details with you.</p>
+
+        <h3>Do your products contain allergens?</h3>
+        <p>Many of our bakes contain wheat, milk, eggs, or nuts. Please tell us about any allergy before you order.</p>
+
+        <h3>What are your bakery policies?</h3>
+        <!-- Unordered list: bakery policies -->
+        <ul>
+          <li>Custom cake orders require advance notice.</li>
+          <li>Product availability may vary daily.</li>
+          <li>Please ask us about allergens before ordering.</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Sweet Crumbs Bakery. Baked fresh every day.</p>
+    <p>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="basket.html">Basket</a>
+      <a href="purchase.html">Purchase</a>
+      <a href="faq.html">FAQ</a>
+    </p>
+  </footer>
+
+</body>
+</html>

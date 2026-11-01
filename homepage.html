@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Sweet Crumbs Bakery</title>
+
+  <!-- External CSS: shared by all five pages -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Internal CSS: this page only -->
+  <style>
+    /* ---------- Hero section ---------- */
+    .hero {
+      position: relative;
+      background: linear-gradient(rgba(61, 43, 31, 0.45), rgba(61, 43, 31, 0.65)), url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: #FFF8EF;
+      padding: 90px 24px 80px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background-color: #D8B894;
+      color: #3D2B1F;
+      font-size: 13px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: 44px;
+      color: #FFF8EF;
+      margin-bottom: 16px;
+      line-height: 1.25;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero p {
+      font-size: 19px;
+      margin: 0 auto 30px;
+      color: #F8F3EC;
+      max-width: 640px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 26px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      background-color: #8B5E3C;
+      color: #FFF8EF;
+      border: 2px solid #8B5E3C;
+    }
+
+    .btn-primary:hover {
+      background-color: #3D2B1F;
+      border-color: #3D2B1F;
+    }
+
+    .btn-secondary {
+      background-color: #FFF8EF;
+      color: #3D2B1F;
+      border: 2px solid #FFF8EF;
+    }
+
+    .btn-secondary:hover {
+      background-color: #D8B894;
+      border-color: #D8B894;
+    }
+
+    /* ---------- Highlights bar ---------- */
+    .highlights {
+      max-width: 1050px;
+      margin: -36px auto 50px;
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      box-shadow: 0 6px 20px rgba(61, 43, 31, 0.08);
+      position: relative;
+      z-index: 5;
+    }
+
+    .highlight-card {
+      text-align: center;
+      padding: 10px;
+    }
+
+    .highlight-card h3 {
+      font-size: 18px;
+      margin-bottom: 4px;
+      color: #3D2B1F;
+    }
+
+    .highlight-card p {
+      font-size: 14px;
+      color: #8B5E3C;
+    }
+
+    /* ---------- Main content ---------- */
+    main {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 20px 24px 60px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .section-title h2 {
+      font-size: 34px;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      font-size: 17px;
+      color: #8B5E3C;
+    }
+
+    /* ---------- Product grid ---------- */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .product-item {
+      background: #FFFFFF;
+      border: 1px solid #D8B894;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .product-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(61, 43, 31, 0.1);
+    }
+
+    .product-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background-color: #E9D9C7;
+    }
+
+    .product-item-body {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-item-body h3 {
+      font-size: 21px;
+      margin: 0 0 6px;
+    }
+
+    .product-item-body .price {
+      font-size: 18px;
+      font-weight: bold;
+      color: #8B5E3C;
+      margin-bottom: 10px;
+    }
+
+    .product-item-body p {
+      font-size: 14px;
+      color: #6E533F;
+      margin-bottom: 18px;
+      flex: 1;
+    }
+
+    .product-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .product-actions .btn {
+      flex: 1;
+      text-align: center;
+      padding: 9px 12px;
+      font-size: 14px;
+    }
+
+    /* ---------- Story section ---------- */
+    .story-section {
+      background: #FBF5E6;
+      border: 1px solid #D8B894;
+      border-radius: 12px;
+      padding: 36px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      margin-bottom: 60px;
+    }
+
+    .story-section img {
+      width: 320px;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+
+    .story-content h2 {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .story-content p {
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+
+    /* ---------- Order journey banner ---------- */
+    .journey {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .journey-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .journey-step {
+      background: #FFFFFF;
+      border-top: 3px solid #8B5E3C;
+      border-radius: 8px;
+      padding: 20px 16px;
+      box-shadow: 0 3px 10px rgba(61, 43, 31, 0.05);
+    }
+
+    .step-badge {
+      width: 36px;
+      height: 36px;
+      background: #D8B894;
+      color: #3D2B1F;
+      border-radius: 50%;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+    }
+
+    .journey-step h4 {
+      font-size: 17px;
+      margin-bottom: 6px;
+    }
+
+    .journey-step p {
+      font-size: 13px;
+      color: #6E533F;
+    }
+
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 32px; }
+      .hero p { font-size: 16px; }
+      .story-section { flex-direction: column; padding: 24px; }
+      .story-section img { width: 100%; height: 200px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header and navigation (identical on every page) -->
+  <header>
+    <nav>
+      <a class="brand" href="index.html">Sweet Crumbs Bakery</a>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="products.html">Products</a>
+        <a href="basket.html">Basket</a>
+        <a href="purchase.html">Purchase</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-badge">Fresh From The Oven</div>
+    <h1>Baked Fresh Every Morning with Butter & Love</h1>
+    <p>Welcome to Sweet Crumbs Bakery! Savor handcrafted flaky crombolonis, golden French croissants, and wholesome artisan sourdough loaves baked fresh daily.</p>
+    <div class="hero-buttons">
+      <a href="products.html" class="btn btn-primary">Explore Products</a>
+      <a href="purchase.html" class="btn btn-secondary">Order Now</a>
+    </div>
+  </section>
+
+  <!-- Highlights Bar -->
+  <div class="highlights">
+    <div class="highlight-card">
+      <h3>100% French Butter</h3>
+      <p>Pure dairy butter for ultra-flaky layers</p>
+    </div>
+    <div class="highlight-card">
+      <h3>Baked at 06:00 Daily</h3>
+      <p>Always fresh straight from our ovens</p>
+    </div>
+    <div class="highlight-card">
+      <h3>Pickup & Delivery</h3>
+      <p>Convenient delivery right to your door</p>
+    </div>
+    <div class="highlight-card">
+      <h3>Natural Ingredients</h3>
+      <p>Zero artificial preservatives or colorings</p>
+    </div>
+  </div>
+
+  <main>
+    <!-- Featured Products -->
+    <div class="section-title">
+      <h2>Signature Bakery Menu</h2>
+      <p>Our most loved daily handcrafted bakes, prepared fresh every morning.</p>
+    </div>
+
+    <div class="product-grid">
+      <!-- 1. Fruit Crombo -->
+      <article class="product-item">
+        <img src="https://images.unsplash.com/photo-1612203985729-70726954388c?auto=format&fit=crop&w=800&q=80" alt="Fruit Crombo">
+        <div class="product-item-body">
+          <h3>Fruit Crombo</h3>
+          <div class="price">Rp25.000,00</div>
+          <p>Crispy circular croissant pastry filled with velvety cream and fresh berries.</p>
+          <div class="product-actions">
+            <a href="products.html" class="btn btn-secondary">View Details</a>
+            <a href="purchase.html?name=Fruit+Crombo&price=25000&quantity=1" class="btn btn-primary">Buy Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2. Butter Croissant -->
+      <article class="product-item">
+        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80" alt="Butter Croissant">
+        <div class="product-item-body">
+          <h3>Butter Croissant</h3>
+          <div class="price">Rp18.000,00</div>
+          <p>Golden, flaky pastry layers with rich aroma of pure French cultured butter.</p>
+          <div class="product-actions">
+            <a href="products.html" class="btn btn-secondary">Details</a>
+            <a href="purchase.html?name=Butter+Croissant&price=18000&quantity=1" class="btn btn-primary">Buy Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3. Sourdough Loaf -->
+      <article class="product-item">
+        <img src="https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?auto=format&fit=crop&w=800&q=80" alt="Sourdough Loaf">
+        <div class="product-item-body">
+          <h3>Sourdough Loaf</h3>
+          <div class="price">Rp45.000,00</div>
+          <p>Naturally fermented for 36 hours. Crackly crust with an airy, soft, tangy interior.</p>
+          <div class="product-actions">
+            <a href="basket.html" class="btn btn-secondary">In Basket</a>
+            <a href="purchase.html?name=Sourdough+Loaf&price=45000&quantity=1" class="btn btn-primary">Buy Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4. Cinnamon Roll -->
+      <article class="product-item">
+        <img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?auto=format&fit=crop&w=800&q=80" alt="Cinnamon Roll">
+        <div class="product-item-body">
+          <h3>Cinnamon Roll</h3>
+          <div class="price">Rp22.000,00</div>
+          <p>Soft brioche roll swirled with sweet Korintje cinnamon and luscious cream glaze.</p>
+          <div class="product-actions">
+            <a href="basket.html" class="btn btn-secondary">In Basket</a>
+            <a href="purchase.html?name=Cinnamon+Roll&price=22000&quantity=1" class="btn btn-primary">Buy Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5. Basic Crombo -->
+      <article class="product-item">
+        <img src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?auto=format&fit=crop&w=800&q=80" alt="Basic Crombo">
+        <div class="product-item-body">
+          <h3>Basic Crombo</h3>
+          <div class="price">Rp18.000,00</div>
+          <p>Classic circular laminated pastry baked to golden crunch, brushed with honey glaze.</p>
+          <div class="product-actions">
+            <a href="products.html" class="btn btn-secondary">Details</a>
+            <a href="purchase.html?name=Basic+Crombo&price=18000&quantity=1" class="btn btn-primary">Buy Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6. Choco Croissant -->
+      <article class="product-item">
+        <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&w=800&q=80" alt="Choco Croissant">
+        <div class="product-item-body">
+          <h3>Choco Croissant</h3>
+          <div class="price">Rp23.000,00</div>
+          <p>Traditional pain au chocolat loaded with two batons of dark Belgian chocolate.</p>
+          <div class="product-actions">
+            <a href="products.html" class="btn btn-secondary">Details</a>
+            <a href="purchase.html?name=Choco+Croissant&price=23000&quantity=1" class="btn btn-primary">Buy Now</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Story Section -->
+    <section class="story-section">
+      <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=1000&q=80" alt="Sweet Crumbs Bakery Shopfront">
+      <div class="story-content">
+        <h2>About Sweet Crumbs Bakery</h2>
+        <p>Located on Jl. Roti Manis No. 8, Sweet Crumbs Bakery was born out of a genuine devotion to traditional artisanal baking.</p>
+        <p>We blend classic French viennoiserie with modern pastry creations, baking small batches daily to ensure warmth, crunch, and authentic flavor in every bite.</p>
+        <p style="margin-top: 14px;">
+          <a href="faq.html" class="btn btn-primary">Read Our FAQ & Policies</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- How to Order -->
+    <div class="journey">
+      <div class="section-title">
+        <h2>How It Works</h2>
+        <p>Ordering freshly baked goods has never been easier.</p>
+      </div>
+      <div class="journey-grid">
+        <div class="journey-step">
+          <div class="step-badge">1</div>
+          <h4>Pick Products</h4>
+          <p>Select your favorite pastries and breads on the Products page.</p>
+        </div>
+        <div class="journey-step">
+          <div class="step-badge">2</div>
+          <h4>Review Basket</h4>
+          <p>Adjust item quantities and inspect order totals on the Basket page.</p>
+        </div>
+        <div class="journey-step">
+          <div class="step-badge">3</div>
+          <h4>Checkout</h4>
+          <p>Choose pickup or delivery and payment method on Purchase page.</p>
+        </div>
+        <div class="journey-step">
+          <div class="step-badge">4</div>
+          <h4>Enjoy Fresh</h4>
+          <p>Receive your fresh bakes or pick them up warm at our counter!</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer (identical on every page) -->
+  <footer>
+    <p>&copy; 2026 Sweet Crumbs Bakery. Baked fresh every day.</p>
+    <p>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="basket.html">Basket</a>
+      <a href="purchase.html">Purchase</a>
+      <a href="faq.html">FAQ</a>
+    </p>
+  </footer>
+
+</body>
+</html>

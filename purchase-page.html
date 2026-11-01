@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Purchase | Sweet Crumbs Bakery</title>
+
+  <!-- External CSS: shared by all five pages -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Internal CSS: this page only -->
+  <style>
+    main {
+      max-width: 700px;
+      margin: 40px auto 60px;
+      padding: 0 24px;
+    }
+
+    .page-title {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .page-title h1 {
+      font-size: 38px;
+      margin-bottom: 8px;
+    }
+
+    .page-title p {
+      font-size: 17px;
+      color: #8B5E3C;
+    }
+
+    .purchase-form {
+      background-color: #FFFFFF;
+      border: 1px solid #D8B894;
+      border-radius: 12px;
+      padding: 32px;
+      box-shadow: 0 4px 16px rgba(61, 43, 31, 0.06);
+    }
+
+    .form-section {
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #E9D9C7;
+    }
+
+    .form-section:last-of-type {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .form-section h3 {
+      font-size: 20px;
+      margin-bottom: 14px;
+      color: #3D2B1F;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 10px 12px;
+      font-size: 15px;
+      font-family: inherit;
+      border: 1px solid #D8B894;
+      border-radius: 6px;
+      background: #FFF8EF;
+      color: #3D2B1F;
+    }
+
+    .pick-group {
+      border: 1px solid #D8B894;
+      background: #FBF5E6;
+      border-radius: 8px;
+      padding: 14px;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .pick-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .pick-option input[type="radio"] {
+      cursor: pointer;
+    }
+
+    .order-summary-box {
+      background: #FBF5E6;
+      border: 1px solid #D8B894;
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 10px;
+    }
+
+    .order-summary-box p {
+      margin: 6px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .summary-total {
+      font-size: 18px;
+      font-weight: bold;
+      color: #3D2B1F;
+      border-top: 1px solid #D8B894;
+      padding-top: 8px;
+      margin-top: 8px;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 20px 0 16px;
+      font-size: 14px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 14px;
+      background-color: #8B5E3C;
+      color: #FFF8EF;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .btn-submit:hover {
+      background-color: #3D2B1F;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header and navigation (identical on every page) -->
+  <header>
+    <nav>
+      <a class="brand" href="index.html">Sweet Crumbs Bakery</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="basket.html">Basket</a>
+        <a href="purchase.html" class="active">Purchase</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="page-title">
+      <h1>Complete Your Order</h1>
+      <p>Fill in your customer and delivery details to finalize your bakery order.</p>
+    </div>
+
+    <form class="purchase-form" id="order-form">
+      <!-- 1. Customer Information -->
+      <section class="form-section">
+        <h3>Customer Information</h3>
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="e.g. John Doe" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="e.g. john@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Account Password</label>
+          <input type="password" id="password" name="password" minlength="8" placeholder="Minimum 8 characters" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="e.g. 08123456789" required>
+        </div>
+      </section>
+
+      <!-- 2. Order Details -->
+      <section class="form-section">
+        <h3>Order Details</h3>
+        <div class="form-group">
+          <label>Order Method</label>
+          <div class="pick-group">
+            <label class="pick-option">
+              <input type="radio" id="pickup" name="method" value="pickup" required>
+              <span>Pickup at Bakery</span>
+            </label>
+            <label class="pick-option">
+              <input type="radio" id="delivery" name="method" value="delivery" checked>
+              <span>Home Delivery</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="time">Preferred Delivery / Pickup Time</label>
+          <select id="time" name="time" required>
+            <option value="">Choose a preferred time slot</option>
+            <option value="morning">Morning (08:00 – 11:00)</option>
+            <option value="afternoon">Afternoon (12:00 – 15:00)</option>
+            <option value="evening">Evening (16:00 – 18:00)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="address">Delivery Address</label>
+          <input type="text" id="address" name="address" placeholder="Street name, house number, notes">
+        </div>
+
+        <div class="form-group">
+          <label for="message">Special Requests / Allergen Notes</label>
+          <textarea id="message" name="message" rows="3" placeholder="Any special requests or instructions for our baker..."></textarea>
+        </div>
+      </section>
+
+      <!-- 3. Payment Method -->
+      <section class="form-section">
+        <h3>Payment Method</h3>
+        <div class="pick-group">
+          <label class="pick-option">
+            <input type="radio" id="bank-transfer" name="payment" value="bank-transfer" checked required>
+            <span>Bank Transfer (BCA / Mandiri)</span>
+          </label>
+          <label class="pick-option">
+            <input type="radio" id="credit-card" name="payment" value="credit-card">
+            <span>Credit Card</span>
+          </label>
+          <label class="pick-option">
+            <input type="radio" id="paypal" name="payment" value="paypal">
+            <span>PayPal / E-Wallet</span>
+          </label>
+        </div>
+      </section>
+
+      <!-- 4. Order Summary -->
+      <section class="form-section">
+        <h3>Order Summary</h3>
+        <div class="order-summary-box">
+          <p><span id="summary-item-name">Butter Croissant x 1</span> <span id="summary-item-price">Rp18.000</span></p>
+          <p><span>Delivery fee</span> <span>Rp10.000</span></p>
+          <p class="summary-total"><span>Total Payment</span> <span id="summary-total-price">Rp28.000</span></p>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="terms" name="terms" required>
+          <label for="terms">I agree to the terms, conditions, and bakery order policies.</label>
+        </div>
+
+        <button type="submit" class="btn-submit">Place Order</button>
+      </section>
+    </form>
+  </main>
+
+  <!-- Footer (identical on every page) -->
+  <footer>
+    <p>&copy; 2026 Sweet Crumbs Bakery. Baked fresh every day.</p>
+    <p>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="basket.html">Basket</a>
+      <a href="purchase.html">Purchase</a>
+      <a href="faq.html">FAQ</a>
+    </p>
+  </footer>
+
+  <script>
+    // Handle parameters from URL (e.g. from Buy Now button on products.html or index.html)
+    const params = new URLSearchParams(window.location.search);
+    const productName = params.get('name');
+    const productPrice = parseInt(params.get('price'), 10);
+    const productQty = parseInt(params.get('quantity'), 10) || 1;
+    const deliveryFee = 10000;
+
+    if (productName && !isNaN(productPrice)) {
+      const subtotal = productPrice * productQty;
+      const total = subtotal + deliveryFee;
+
+      const itemNameEl = document.getElementById('summary-item-name');
+      const itemPriceEl = document.getElementById('summary-item-price');
+      const totalEl = document.getElementById('summary-total-price');
+
+      if (itemNameEl) {
+        itemNameEl.textContent = productName + ' x ' + productQty;
+      }
+      if (itemPriceEl) {
+        itemPriceEl.textContent = 'Rp' + subtotal.toLocaleString('id-ID');
+      }
+      if (totalEl) {
+        totalEl.textContent = 'Rp' + total.toLocaleString('id-ID');
+      }
+    }
+
+    // Handle form submission
+    document.getElementById('order-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Terima kasih! Pesanan Anda telah berhasil dibuat di Sweet Crumbs Bakery. Kami akan segera memprosesnya.');
+      window.location.href = 'index.html';
+    });
+  </script>
+
+</body>
+</html>

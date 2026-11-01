@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <radialGradient id="doughGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#FDF6E2"/>
+      <stop offset="60%" stop-color="#EED5AE"/>
+      <stop offset="100%" stop-color="#C69255"/>
+    </radialGradient>
+    <linearGradient id="crustGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C68A4C"/>
+      <stop offset="50%" stop-color="#8B5E3C"/>
+      <stop offset="100%" stop-color="#54341B"/>
+    </linearGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#3D2B1F" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Circular Badge Background -->
+  <circle cx="50" cy="50" r="46" fill="#FFF8EF" stroke="#8B5E3C" stroke-width="2.5" filter="url(#softShadow)"/>
+  <circle cx="50" cy="50" r="41" fill="none" stroke="#D8B894" stroke-width="1.2" stroke-dasharray="3,2.5"/>
+
+  <!-- Wheat stalk left -->
+  <g fill="#C68A4C" opacity="0.95">
+    <path d="M 23 64 C 21 55 24 44 32 37 C 30 42 29 48 30 54 C 27 57 24 61 23 64 Z"/>
+    <ellipse cx="24" cy="45" rx="4" ry="2" transform="rotate(-30 24 45)"/>
+    <ellipse cx="26" cy="52" rx="4.5" ry="2" transform="rotate(-20 26 52)"/>
+    <ellipse cx="29" cy="59" rx="5" ry="2.2" transform="rotate(-10 29 59)"/>
+  </g>
+
+  <!-- Wheat stalk right -->
+  <g fill="#C68A4C" opacity="0.95">
+    <path d="M 77 64 C 79 55 76 44 68 37 C 70 42 71 48 70 54 C 73 57 76 61 77 64 Z"/>
+    <ellipse cx="76" cy="45" rx="4" ry="2" transform="rotate(30 76 45)"/>
+    <ellipse cx="74" cy="52" rx="4.5" ry="2" transform="rotate(20 74 52)"/>
+    <ellipse cx="71" cy="59" rx="5" ry="2.2" transform="rotate(10 71 59)"/>
+  </g>
+
+  <!-- Golden Croissant / Pastry Body -->
+  <g id="croissant">
+    <!-- Main Crescent -->
+    <path d="M 27 53 C 25 38 37 26 50 26 C 63 26 75 38 73 53 C 69 45 61 39 50 39 C 39 39 31 45 27 53 Z" fill="url(#crustGrad)"/>
+    
+    <!-- Central Puff / Swirl -->
+    <path d="M 33 51 C 34 42 41 33 50 33 C 59 33 66 42 67 51 C 63 45 57 41 50 41 C 43 41 37 45 33 51 Z" fill="url(#doughGrad)"/>
+    
+    <!-- Flaky Pastry Score Marks -->
+    <path d="M 42 35 Q 40 45 44 51" stroke="#FFF8EF" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+    <path d="M 50 33 Q 50 44 50 52" stroke="#FFF8EF" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M 58 35 Q 60 45 56 51" stroke="#FFF8EF" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+  </g>
+
+  <!-- Sweet Crumbs Falling -->
+  <circle cx="36" cy="61" r="1.8" fill="#8B5E3C"/>
+  <circle cx="43" cy="65" r="2.2" fill="#C68A4C"/>
+  <circle cx="50" cy="63" r="1.6" fill="#8B5E3C"/>
+  <circle cx="57" cy="66" r="2.4" fill="#C68A4C"/>
+  <circle cx="64" cy="62" r="1.8" fill="#8B5E3C"/>
+  <circle cx="48" cy="70" r="1.4" fill="#C68A4C"/>
+  <circle cx="53" cy="71" r="1.5" fill="#8B5E3C"/>
+
+  <!-- Bakery Text Ribbon -->
+  <path d="M 30 77 Q 50 74 70 77" stroke="#D8B894" stroke-width="1" fill="none"/>
+  <text x="50" y="85" font-family="Georgia, serif" font-size="8.5" font-weight="bold" fill="#3D2B1F" text-anchor="middle" letter-spacing="1">EST. 2026</text>
+</svg>
+

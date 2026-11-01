@@ -1,0 +1,115 @@
+/* ========================================================
+   Sweet Crumbs Bakery - Shared Stylesheet
+   External CSS: shared by all five pages
+   ======================================================== */
+
+/* ---------- Base text and font properties ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #FFF8EF;
+  color: #3D2B1F;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #3D2B1F;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #8B5E3C;
+  outline-offset: 3px;
+}
+
+/* ---------- Header and navigation (keep identical on every page) ---------- */
+header {
+  background-color: #D8B894;
+}
+
+nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.brand {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #3D2B1F;
+  text-decoration: none;
+}
+
+.brand:hover {
+  opacity: 0.9;
+}
+
+.nav-links a {
+  font-size: 16px;
+  color: #3D2B1F;
+  text-decoration: none;
+  margin-left: 22px;
+  padding-bottom: 3px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  border-bottom: 2px solid #3D2B1F;
+  font-weight: bold;
+}
+
+/* ---------- Footer (keep identical on every page) ---------- */
+footer {
+  background-color: #3D2B1F;
+  color: #FFF8EF;
+  text-align: center;
+  font-size: 15px;
+  padding: 28px 24px;
+}
+
+footer p {
+  margin: 6px 0;
+}
+
+footer a {
+  color: #D8B894;
+  margin: 0 8px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 700px) {
+  nav {
+    padding: 14px 16px;
+  }
+
+  .nav-links a {
+    margin: 4px 14px 4px 0;
+    font-size: 15px;
+  }
+}

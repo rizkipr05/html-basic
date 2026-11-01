@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Basket | Sweet Crumbs Bakery</title>
+
+  <!-- External CSS: shared by all five pages -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Internal CSS: this page only -->
+  <style>
+    main {
+      max-width: 780px;
+      margin: 40px auto 60px;
+      padding: 0 24px;
+    }
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: 24px;
+      font-size: 36px;
+    }
+
+    /* Each product in the basket */
+    .basket-item {
+      display: flex;
+      gap: 18px;
+      background: #FFFFFF;
+      border: 1px solid #D8B894;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      align-items: center;
+    }
+
+    .basket-item img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+      background: #E9D9C7;
+      flex-shrink: 0;
+    }
+
+    .basket-item-info {
+      flex: 1;
+    }
+
+    .basket-item h2 {
+      margin: 0 0 4px;
+      font-size: 1.25rem;
+    }
+
+    .basket-item p {
+      margin: 0 0 10px;
+      color: #8B5E3C;
+      font-weight: bold;
+    }
+
+    .basket-item input {
+      width: 60px;
+      padding: 6px;
+      font: inherit;
+      border: 1px solid #8A6A4F;
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    .basket-item button {
+      margin-left: 10px;
+      padding: 6px 14px;
+      font: inherit;
+      background: none;
+      color: #68452F;
+      border: 1px solid #68452F;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .basket-item button:hover {
+      background: #68452F;
+      color: #FFF8EF;
+    }
+
+    /* Order summary */
+    .order-summary {
+      background: #FFFFFF;
+      border: 1px solid #D8B894;
+      border-radius: 10px;
+      padding: 24px;
+      margin-top: 24px;
+    }
+
+    .order-summary h2 {
+      margin-top: 0;
+      margin-bottom: 14px;
+      font-size: 24px;
+    }
+
+    .order-summary p {
+      margin: 8px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .total {
+      font-size: 1.3rem;
+      font-weight: bold;
+      border-top: 2px solid #3D2B1F;
+      padding-top: 12px;
+      margin-top: 12px;
+    }
+
+    /* Links that look like buttons */
+    .actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 6px;
+      border: 2px solid #68452F;
+      color: #68452F;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+      transition: 0.2s;
+    }
+
+    .button.primary {
+      background: #68452F;
+      color: #FFF8EF;
+    }
+
+    .button:hover {
+      opacity: 0.9;
+    }
+
+    .empty-message {
+      text-align: center;
+      padding: 50px 16px;
+      background: #FFFFFF;
+      border: 1px solid #D8B894;
+      border-radius: 10px;
+    }
+
+    .empty-message h2 {
+      margin-bottom: 8px;
+    }
+
+    .empty-message p {
+      margin-bottom: 20px;
+      color: #6E533F;
+    }
+
+    @media (max-width: 500px) {
+      .basket-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .basket-item img {
+        width: 100%;
+        height: 140px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header and navigation (identical on every page) -->
+  <header>
+    <nav>
+      <a class="brand" href="index.html">Sweet Crumbs Bakery</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="basket.html" class="active">Basket</a>
+        <a href="purchase.html">Purchase</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Your Basket</h1>
+
+    <!-- Basket items. data-price is the unit price in rupiah. -->
+    <div id="items">
+
+      <section class="basket-item" data-price="18000">
+        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80" alt="Butter Croissant">
+        <div class="basket-item-info">
+          <h2>Butter Croissant</h2>
+          <p>Price: Rp18,000</p>
+          <label>Quantity:
+            <input type="number" min="1" value="2">
+          </label>
+          <button type="button">Remove</button>
+        </div>
+      </section>
+
+      <section class="basket-item" data-price="45000">
+        <img src="https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?auto=format&fit=crop&w=600&q=80" alt="Sourdough Loaf">
+        <div class="basket-item-info">
+          <h2>Sourdough Loaf</h2>
+          <p>Price: Rp45,000</p>
+          <label>Quantity:
+            <input type="number" min="1" value="1">
+          </label>
+          <button type="button">Remove</button>
+        </div>
+      </section>
+
+      <section class="basket-item" data-price="22000">
+        <img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?auto=format&fit=crop&w=600&q=80" alt="Cinnamon Roll">
+        <div class="basket-item-info">
+          <h2>Cinnamon Roll</h2>
+          <p>Price: Rp22,000</p>
+          <label>Quantity:
+            <input type="number" min="1" value="1">
+          </label>
+          <button type="button">Remove</button>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Shown only when the basket is empty -->
+    <section class="empty-message" id="empty-message" hidden>
+      <h2>Your basket is empty</h2>
+      <p>Add fresh bread and pastries from our bakery and they will appear here.</p>
+      <a class="button primary" href="products.html">Continue Shopping</a>
+    </section>
+
+    <section class="order-summary" id="summary">
+      <h2>Order Summary</h2>
+      <p>Subtotal: <span id="subtotal"></span></p>
+      <p>Delivery fee: <span id="delivery"></span></p>
+      <p class="total">Total: <span id="total"></span></p>
+
+      <div class="actions">
+        <a class="button" href="products.html">Continue Shopping</a>
+        <a class="button primary" href="purchase.html">Proceed to Checkout</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (identical on every page) -->
+  <footer>
+    <p>&copy; 2026 Sweet Crumbs Bakery. Baked fresh every day.</p>
+    <p>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="basket.html">Basket</a>
+      <a href="purchase.html">Purchase</a>
+      <a href="faq.html">FAQ</a>
+    </p>
+  </footer>
+
+  <script>
+    // Change this number to set the delivery fee (in rupiah).
+    var DELIVERY_FEE = 10000;
+
+    // Turns 18000 into "Rp18,000"
+    function rupiah(number) {
+      return "Rp" + number.toLocaleString("en-US");
+    }
+
+    // Adds up all items and updates the summary
+    function updateTotals() {
+      var items = document.querySelectorAll(".basket-item");
+      var subtotal = 0;
+
+      items.forEach(function (item) {
+        var price = Number(item.dataset.price);
+        var input = item.querySelector("input");
+        var quantity = parseInt(input.value, 10);
+        if (!quantity || quantity < 1) { quantity = 1; }
+        subtotal += price * quantity;
+      });
+
+      var isEmpty = items.length === 0;
+      document.getElementById("empty-message").hidden = !isEmpty;
+      document.getElementById("summary").hidden = isEmpty;
+
+      document.getElementById("subtotal").textContent = rupiah(subtotal);
+      document.getElementById("delivery").textContent = rupiah(DELIVERY_FEE);
+      document.getElementById("total").textContent = rupiah(subtotal + DELIVERY_FEE);
+    }
+
+    // When a quantity changes, update the totals
+    document.querySelectorAll(".basket-item input").forEach(function (input) {
+      input.addEventListener("input", updateTotals);
+      input.addEventListener("change", function () {
+        if (!input.value || input.value < 1) { input.value = 1; }
+        updateTotals();
+      });
+    });
+
+    // When Remove is clicked, delete that item
+    document.querySelectorAll(".basket-item button").forEach(function (button) {
+      button.addEventListener("click", function () {
+        button.closest(".basket-item").remove();
+        updateTotals();
+      });
+    });
+
+    updateTotals();
+  </script>
+
+</body>
+</html>
